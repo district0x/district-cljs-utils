@@ -10,6 +10,10 @@
     (reduce merge-in* nil args)))
 
 
+(defn collify [x]
+  (if (sequential? x) x [x]))
+
+
 (defn sort-desc [coll]
   (sort #(compare %2 %1) coll))
 

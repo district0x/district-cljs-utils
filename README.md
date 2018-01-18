@@ -13,6 +13,7 @@ Include `[district.cljs-utils]` in your CLJS file
 ## API Overview
 - [district.cljs-utils](#districtcljs-utils)
   - [merge-in](#merge-in)
+  - [collify](#collify)
   - [sort-desc](#sort-desc)
   - [sort-by-desc](#sort-by-desc)
   - [map-kv-at-keys](#map-kv-at-keys)
@@ -28,6 +29,16 @@ Deep merge of multiple maps
 ```clojure
 (cljs-utils/merge-in {:a {:b 1}} {:a {:c 2}} {:a {:d 3}})
 ;; => {:a {:b 1 :c 2 :d 3}}
+```
+
+#### <a name="collify">`collify [x]`
+Ensures a collection.
+```clojure
+(first (cljs-utils/collify 1))
+;; => 1
+
+(first (cljs-utils/collify [1]))
+;; => 1
 ```
 
 #### <a name="sort-desc">`sort-desc [coll]`
