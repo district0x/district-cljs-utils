@@ -7,7 +7,7 @@ Set of helper functions for working with vanilla Clojurescript, requiring no oth
 
 
 ## Installation
-Add `[district0x/district-cljs-utils "1.0.0"]` into your project.clj  
+Add `[district0x/district-cljs-utils "1.0.1"]` into your project.clj  
 Include `[district.cljs-utils]` in your CLJS file  
 
 ## API Overview
@@ -88,6 +88,13 @@ Invariant version of assoc-in. Returns unchanged map if `ks` path is empty.
 
 (cljs-utils/safe-assoc-in {:b {}} [:b :c] 2)
 ;; => {:b {:c 2}}
+```
+
+#### <a name="js-obj-clj">`js-obj->clj [obj]`
+Converts JS object (instance of a class) into Clojure map
+```clojure
+(:protocol (cljs-utils/js-obj->clj (aget js/window "location")))
+;; => http:
 ```
 
 ## Development

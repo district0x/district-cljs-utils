@@ -23,5 +23,8 @@
 
   (is (= {:a 1} (cljs-utils/safe-assoc-in {:a 1} [:b :c] 2)))
 
-  (is (= {:b {:c 2}} (cljs-utils/safe-assoc-in {:b {}} [:b :c] 2))))
+  (is (= {:b {:c 2}} (cljs-utils/safe-assoc-in {:b {}} [:b :c] 2)))
+
+  (is (string? (:protocol (cljs-utils/js-obj->clj (aget js/window "location"))))))
+
 

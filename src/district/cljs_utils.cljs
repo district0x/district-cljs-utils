@@ -54,3 +54,10 @@
   (if (get-in m (-> ks drop-last vec))
     (assoc-in m ks v)
     m))
+
+
+(defn js-obj->clj [obj]
+  (reduce (fn [acc key]
+            (assoc acc (keyword key) (aget obj key)))
+          {}
+          (js->clj (js-keys obj))))
