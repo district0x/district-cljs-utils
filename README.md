@@ -20,6 +20,7 @@ Include `[district.cljs-utils]` in your CLJS file
   - [map-vals-at-keys](#map-vals-at-keys)
   - [rand-str](#rand-str)
   - [safe-assoc-in](#safe-assoc-in)
+  - [js-obj->clj](#js-obj-clj)
   
 
 ## district.cljs-utils
