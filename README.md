@@ -7,7 +7,7 @@ Set of helper functions for working with vanilla Clojurescript, requiring no oth
 
 
 ## Installation
-Add `[district0x/district-cljs-utils "1.0.1"]` into your project.clj  
+Add `[district0x/district-cljs-utils "1.0.2"]` into your project.clj  
 Include `[district.cljs-utils]` in your CLJS file  
 
 ## API Overview
@@ -21,6 +21,7 @@ Include `[district.cljs-utils]` in your CLJS file
   - [rand-str](#rand-str)
   - [safe-assoc-in](#safe-assoc-in)
   - [js-obj->clj](#js-obj-clj)
+  - [kw->str](#kw-str)
   
 
 ## district.cljs-utils
@@ -96,6 +97,13 @@ Converts JS object (instance of a class) into Clojure map
 ```clojure
 (:protocol (cljs-utils/js-obj->clj (aget js/window "location")))
 ;; => http:
+```
+
+#### <a name="kw-str">`kw->str [kw]`
+Stringifies keyword. In contrary to `name`, preserves namespace as well
+```clojure
+(cljs-utils/kw->str :some.long/name)
+;; => "some.long/name"
 ```
 
 ## Development

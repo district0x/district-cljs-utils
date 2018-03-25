@@ -61,3 +61,8 @@
             (assoc acc (keyword key) (aget obj key)))
           {}
           (js->clj (js-keys obj))))
+
+
+(defn kw->str [kw]
+  (when (keyword? kw)
+    (subs (str kw) 1)))

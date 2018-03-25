@@ -25,6 +25,9 @@
 
   (is (= {:b {:c 2}} (cljs-utils/safe-assoc-in {:b {}} [:b :c] 2)))
 
-  (is (string? (:protocol (cljs-utils/js-obj->clj (aget js/window "location"))))))
+  (is (string? (:protocol (cljs-utils/js-obj->clj (aget js/window "location")))))
+
+  (is (= "some.long/name" (cljs-utils/kw->str :some.long/name)))
+  (is (= "name" (cljs-utils/kw->str :name))))
 
 
