@@ -28,6 +28,10 @@
   (is (string? (:protocol (cljs-utils/js-obj->clj (aget js/window "location")))))
 
   (is (= "some.long/name" (cljs-utils/kw->str :some.long/name)))
-  (is (= "name" (cljs-utils/kw->str :name))))
+  (is (= "name" (cljs-utils/kw->str :name)))
+
+  (is (= {2 "a" 3 "a"} (cljs-utils/transform-keys inc {1 "a" 2 "a"})))
+
+  (is (= {"a" 2 "b" 3} (cljs-utils/transform-vals inc {"a" 1 "b" 2}))))
 
 

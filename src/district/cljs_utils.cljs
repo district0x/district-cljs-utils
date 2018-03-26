@@ -1,4 +1,5 @@
-(ns district.cljs-utils)
+(ns district.cljs-utils
+  (:require [clojure.walk :refer [postwalk]]))
 
 (letfn [(merge-in* [a b]
           (if (map? a)
@@ -66,3 +67,15 @@
 (defn kw->str [kw]
   (when (keyword? kw)
     (subs (str kw) 1)))
+
+
+(defn transform-keys [t coll]
+  "Recursively transforms all map keys in coll with t."
+  (letfn [(transform [[k v]] [(t k) v])]
+    (postwalk (fn [x] (if (map? x) (into {} (map transform x)) x)) coll)))
+
+
+(defn transform-vals [t coll]
+  "Recursively transforms all map values in coll with t."
+  (letfn [(transform [[k v]] [k (t v)])]
+    (postwalk (fn [x] (if (map? x) (into {} (map transform x)) x)) coll)))

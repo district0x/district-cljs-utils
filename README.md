@@ -3,11 +3,12 @@
 [![Build Status](https://travis-ci.org/district0x/district-cljs-utils.svg?branch=master)](https://travis-ci.org/district0x/district-cljs-utils)
 
 
-Set of helper functions for working with vanilla Clojurescript, requiring no other libraries. 
+Set of helper functions for working with vanilla Clojurescript, requiring no other 3rd party libraries. This is not meant 
+to be replacement of similar libraries like [medley](https://github.com/weavejester/medley), rather should be complementary.
 
 
 ## Installation
-Add `[district0x/district-cljs-utils "1.0.2"]` into your project.clj  
+Add `[district0x/district-cljs-utils "1.0.3"]` into your project.clj  
 Include `[district.cljs-utils]` in your CLJS file  
 
 ## API Overview
@@ -22,6 +23,8 @@ Include `[district.cljs-utils]` in your CLJS file
   - [safe-assoc-in](#safe-assoc-in)
   - [js-obj->clj](#js-obj-clj)
   - [kw->str](#kw-str)
+  - [transform-keys](#transform-keys)
+  - [transform-vals](#transform-vals)
   
 
 ## district.cljs-utils
@@ -104,6 +107,20 @@ Stringifies keyword. In contrary to `name`, preserves namespace as well
 ```clojure
 (cljs-utils/kw->str :some.long/name)
 ;; => "some.long/name"
+```
+
+#### <a name="transform-keys">`transform-keys [t coll]`
+Recursively transforms all map keys in coll with t.
+```clojure
+(cljs-utils/transform-keys inc {1 "a" 2 "a"})
+;; => {2 "a" 3 "a"}
+```
+
+#### <a name="transform-vals">`transform-vals [t coll]`
+Recursively transforms all map values in coll with t.
+```clojure
+(cljs-utils/transform-vals inc {"a" 1 "b" 2})
+;; => {"a" 2 "b" 3}
 ```
 
 ## Development
