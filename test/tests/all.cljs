@@ -30,8 +30,12 @@
   (is (= "some.long/name" (cljs-utils/kw->str :some.long/name)))
   (is (= "name" (cljs-utils/kw->str :name)))
 
-  (is (= {2 "a" 3 "a"} (cljs-utils/transform-keys inc {1 "a" 2 "a"})))
+  (is (= {2 "a" 3 "a" 4 {5 "a"}} (cljs-utils/transform-keys inc {1 "a" 2 "a" 3 {4 "a"}})))
 
-  (is (= {"a" 2 "b" 3} (cljs-utils/transform-vals inc {"a" 1 "b" 2}))))
+  (is (= {:a 2 :b 3 :c {:z 4}} (cljs-utils/transform-vals (fn [v]
+                                                            (if (number? v)
+                                                              (inc v)
+                                                              v))
+                                                          {:a 1 :b 2 :c {:z 3}}))))
 
 

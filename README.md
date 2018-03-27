@@ -112,15 +112,19 @@ Stringifies keyword. In contrary to `name`, preserves namespace as well
 #### <a name="transform-keys">`transform-keys [t coll]`
 Recursively transforms all map keys in coll with t.
 ```clojure
-(cljs-utils/transform-keys inc {1 "a" 2 "a"})
-;; => {2 "a" 3 "a"}
+(cljs-utils/transform-keys inc {1 "a" 2 "a" 3 {4 "a"}})
+;; => {2 "a" 3 "a" 4 {5 "a"}}
 ```
 
 #### <a name="transform-vals">`transform-vals [t coll]`
 Recursively transforms all map values in coll with t.
 ```clojure
-(cljs-utils/transform-vals inc {"a" 1 "b" 2})
-;; => {"a" 2 "b" 3}
+(cljs-utils/transform-vals (fn [v]
+                              (if (number? v)
+                                (inc v)
+                                v))
+                            {:a 1 :b 2 :c {:z 3}})
+;; => {:a 2 :b 3 :c {:z 4}}
 ```
 
 ## Development
