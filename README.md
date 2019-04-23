@@ -8,13 +8,14 @@ to be replacement of similar libraries like [medley](https://github.com/weavejes
 
 
 ## Installation
-Add `[district0x/district-cljs-utils "1.0.3"]` into your project.clj  
+Add `[district0x/district-cljs-utils "1.0.4"]` into your project.clj  
 Include `[district.cljs-utils]` in your CLJS file  
 
 ## API Overview
 - [district.cljs-utils](#districtcljs-utils)
   - [merge-in](#merge-in)
   - [collify](#collify)
+  - [not-nil?](#not-nil)
   - [sort-desc](#sort-desc)
   - [sort-by-desc](#sort-by-desc)
   - [map-kv-at-keys](#map-kv-at-keys)
@@ -44,6 +45,14 @@ Ensures a collection.
 
 (first (cljs-utils/collify [1]))
 ;; => 1
+```
+
+#### <a name="not-nil">`not-nil? [x]`
+Returns true if not nil
+```clojure
+(cljs-utils/not-nil? 1)
+;; => true
+
 ```
 
 #### <a name="sort-desc">`sort-desc [coll]`

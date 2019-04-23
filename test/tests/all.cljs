@@ -9,6 +9,10 @@
   (is (= 1 (first (cljs-utils/collify 1))))
   (is (= 1 (first (cljs-utils/collify [1]))))
 
+  (is (true? (cljs-utils/not-nil? 1)))
+
+  (is (false? (cljs-utils/not-nil? nil)))
+
   (is (= [3 2 1] (cljs-utils/sort-desc [2 1 3])))
 
   (is (= [{:a 3} {:a 2} {:a 1}] (vec (cljs-utils/sort-by-desc :a [{:a 2} {:a 1} {:a 3}]))))

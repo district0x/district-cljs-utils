@@ -19,6 +19,9 @@
   (sort #(compare %2 %1) coll))
 
 
+(def not-nil? (complement nil?))
+
+
 (defn sort-by-desc [key-fn coll]
   (sort-by key-fn #(compare %2 %1) coll))
 

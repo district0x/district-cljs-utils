@@ -1,4 +1,4 @@
-(defproject district0x/district-cljs-utils "1.0.3"
+(defproject district0x/district-cljs-utils "1.0.4"
   :description "Set of functions helpful for working with Clojurescript"
   :url "https://github.com/district0x/district-cljs-utils"
   :license {:name "Eclipse Public License"
